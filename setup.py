@@ -5,7 +5,7 @@ package_name = 'turtle_scanner_FOTSO_TOLOTRA'
 setup(
     name=package_name,
     version='0.0.0',
-    packages=[package_name],
+    packages=find_packages(),
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -23,8 +23,9 @@ setup(
         ],
     },
     entry_points={
-    'console_scripts': [
-        'spawn_target = turtle_scanner_FOTSO_TOLOTRA.spawn_target:main',
-    ],
-},
+        'console_scripts': [
+            'spawn_target = turtle_scanner_FOTSO_TOLOTRA.spawn_target:main',
+            'turtle_scanner_node = turtle_scanner_FOTSO_TOLOTRA.turtle_scanner_node:main',
+        ],
+    },
 )

@@ -6,7 +6,21 @@ from turtlesim.msg import Pose
 
 
 class TurtleScanner(Node):
+     
+    def __init__(self):
+        super().__init__('turtle_scanner_node')
 
+        self.pose_target = None
+
+        self.sub_target = self.create_subscription(
+            Pose,
+            '/turtle_target/pose',
+            self.callback_target,
+            10
+        )
+
+    def callback_target(self, msg):
+        self.pose_target = msg
     def __init__(self):  # ✅ DOUBLE UNDERSCORE
         super().__init__('turtle_scanner_node')  # ✅ CORRECT
 
@@ -61,3 +75,6 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
+    
+    self.pose_target = None
+)
